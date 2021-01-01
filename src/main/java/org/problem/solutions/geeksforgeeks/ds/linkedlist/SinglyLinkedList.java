@@ -158,5 +158,7 @@ public class SinglyLinkedList<T> {
 		return new OneWayNode<T>(data, next);
 	}
 	
-	
+	public OneWayNode<T> getHead(){
+		return head;
+	}
 }

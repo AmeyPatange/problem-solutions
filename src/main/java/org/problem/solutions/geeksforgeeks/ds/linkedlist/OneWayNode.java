@@ -6,7 +6,7 @@ package org.problem.solutions.geeksforgeeks.ds.linkedlist;
  *
  * @param <T> Type T
  */
-class OneWayNode<T> {
+public class OneWayNode<T> {
 
 	private T data;
 	
@@ -24,14 +24,14 @@ class OneWayNode<T> {
 	/**
 	 * @return the data
 	 */
-	T getData() {
+	public T getData() {
 		return data;
 	}
 
 	/**
 	 * @return the next
 	 */
-	OneWayNode<T> getNext() {
+	public OneWayNode<T> getNext() {
 		return next;
 	}
 
