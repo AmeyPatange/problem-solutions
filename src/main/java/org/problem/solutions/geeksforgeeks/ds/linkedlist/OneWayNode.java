@@ -6,7 +6,7 @@ package org.problem.solutions.geeksforgeeks.ds.linkedlist;
  *
  * @param <T> Type T
  */
-public class OneWayNode<T> {
+public class OneWayNode<T>{
 
 	private T data;
 	

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.problem.solutions.geeksforgeeks.algo.linkedlist.GetNthNodeFromEnd;
 import org.problem.solutions.geeksforgeeks.algo.linkedlist.ReverseList;
+import org.problem.solutions.geeksforgeeks.algo.linkedlist.SortList;
 
 public class SinglyLinkedListTest {
 	
@@ -86,4 +87,17 @@ public class SinglyLinkedListTest {
 		
 	}
 	
+	@Test
+	public void sort() {
+		
+		SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
+		for(int i=1; i<=10; i++)
+			sll.insertAtBeginning(i);
+		for(int i=1; i<=10; i++)
+			sll.insertAtEnd(i);
+		sll.traverse();
+		SortList sl = new SortList();
+		sl.mergeSort(sll);
+		sll.traverse();
+	}
 }
