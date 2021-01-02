@@ -48,7 +48,8 @@ public class SinglyLinkedList<T> {
 		
 		OneWayNode<T> curr = head;
 		do {
-			System.out.print(curr.getData());
+			System.out.print(curr);
+			curr = curr.getNext();
 		}while(null != curr);
 		System.out.println();
 	}
@@ -122,6 +123,29 @@ public class SinglyLinkedList<T> {
 	}
 	
 	/**
+	 * For given data T, finds number of occurrences in Linked List
+	 * @param data
+	 * @return Number of times data T occurs in Linked List
+	 */
+	public int occurrenceOf(T data) {
+		
+		if(isEmpty())
+			return 0;
+		
+		OneWayNode<T> curr = head;
+		int occur = 0;
+		
+		do {
+			if(curr.getData().equals(data))
+				occur++;
+			
+			curr = curr.getNext();
+		}while(null != curr);
+		
+		return occur;
+	}
+	
+	/**
 	 * @param n
 	 * @return data of nth position node
 	 * NULL if position doesn't exist
@@ -160,5 +184,9 @@ public class SinglyLinkedList<T> {
 	
 	public OneWayNode<T> getHead(){
 		return head;
+	}
+	
+	public void setHead(OneWayNode<T> head){
+		this.head = head;
 	}
 }

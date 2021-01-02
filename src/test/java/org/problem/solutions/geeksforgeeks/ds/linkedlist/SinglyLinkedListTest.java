@@ -3,6 +3,7 @@ package org.problem.solutions.geeksforgeeks.ds.linkedlist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.problem.solutions.geeksforgeeks.algo.linkedlist.GetNthNodeFromEnd;
+import org.problem.solutions.geeksforgeeks.algo.linkedlist.ReverseList;
 
 public class SinglyLinkedListTest {
 	
@@ -47,9 +48,40 @@ public class SinglyLinkedListTest {
 		}
 		
 		GetNthNodeFromEnd gnfe = new GetNthNodeFromEnd();
-		System.out.println(gnfe.getNthFromEnd(sll, 100));
 		for(int i= 100; i >=1; i--) {
 			Assertions.assertTrue(gnfe.getNthFromEnd(sll, i) == 100 -i +1);
+		}
+	}
+	
+	@Test
+	public void occurrencesTest() {
+		
+		SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
+		int data = 100;
+		
+		int i = 0;
+		for(; i< 10; i++) {
+			sll.insertAtBeginning(data);
+		}
+		sll.insertAtBeginning(200);
+		sll.insertAtBeginning(300);
+		sll.insertAtBeginning(400);
+		
+		Assertions.assertTrue(sll.occurrenceOf(data) == i);
+	}
+	
+	@Test
+	public void reverseTest() {
+		
+		SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
+		for(int i=0; i< 100; i++) {
+			sll.insertAtBeginning(i);
+		}
+		
+		ReverseList rev = new ReverseList();
+		rev.reverseList(sll);
+		for(int i=0; i< 100; i++) {
+			Assertions.assertTrue(sll.getNthNode(i+1) == i);
 		}
 		
 	}

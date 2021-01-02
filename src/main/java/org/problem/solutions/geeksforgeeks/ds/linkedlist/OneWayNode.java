@@ -38,14 +38,14 @@ public class OneWayNode<T> {
 	/**
 	 * @param data the data to set
 	 */
-	void setData(T data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
 	/**
 	 * @param next the next to set
 	 */
-	void setNext(OneWayNode<T> next) {
+	public void setNext(OneWayNode<T> next) {
 		this.next = next;
 	}
 
