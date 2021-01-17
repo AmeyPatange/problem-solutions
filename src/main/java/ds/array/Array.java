@@ -25,4 +25,6 @@ public interface Array<T>{
 	void removeFirst();
 	
 	void removeLast();
+	
+	int size();
 }

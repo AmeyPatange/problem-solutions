@@ -1,6 +1,6 @@
 package ds.array.impl;
 
-import ds.array.Array;
+import ds.array.AbstractArray;
 
 /**
  * FixedSizeArray is not Growable in Nature.
@@ -9,12 +9,12 @@ import ds.array.Array;
  *
  * @param <T>
  */
-public class FixedSizeArray<T> implements Array<T>{
+public class FixedSizeArray<T> extends AbstractArray<T>{
 
 	private T arr[];
 	
 	private final int DEFAULT_SIZE = 10;
-	private int capacity = 0;
+	private final int capacity;
 	private int numElements = 0;
 	
 	@SuppressWarnings("unchecked")
@@ -62,22 +62,14 @@ public class FixedSizeArray<T> implements Array<T>{
 	}
 
 	@Override
-	public void traverse() {
-		if(isEmpty()) {
-			System.out.println("Array is Empty");
-			return;
-		}
-		
+	public void traverseArr() {
 		for(int i=0; i < numElements; i++) {
 			System.out.print(arr[i]);
 		}
 	}
 
 	@Override
-	public T get(int position) {
-		if(position < 1 || position > numElements)
-			return null;
-		
+	public T getElementAt(int position) {
 		return arr[position -1];
 	}
 
@@ -101,5 +93,10 @@ public class FixedSizeArray<T> implements Array<T>{
 		
 		arr[numElements -1] = null;
 		numElements--;
+	}
+	
+	@Override
+	public int size() {
+		return numElements;
 	}
 }
