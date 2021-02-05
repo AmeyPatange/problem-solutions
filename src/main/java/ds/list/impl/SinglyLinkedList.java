@@ -120,4 +120,47 @@ public class SinglyLinkedList<T> extends AbstractList<T>{
 		curr.getNext().setData(null);
 		curr.setNext(null);
 	}
+	
+	/**
+	 * Used to Reverse in Group of K Elements
+	 * 
+	 * If Linked List is 
+	 * h -> 1 -> 2 -> 3 -> 4 -> 5 
+	 * k = 2
+	 * 
+	 * Then Reversed List will look like
+	 * h -> 2 -> 1 -> 4 -> 3 -> 5
+	 */
+	void reverseInGroup(int k) {
+		
+		Node<T> curr = head, newHead = null;
+		boolean isFirstGrp = true;
+		Node<T> prevFirst = head;
+		while(null != curr) {
+			Node<T> firstInGrp = curr;
+			Node<T> prev = null;
+			int currGrp = 0;
+			
+			while(null != curr && currGrp < k) {
+				Node<T> next = curr.getNext();
+				curr.setNext(prev);
+				prev = curr;
+				curr = next;
+				currGrp++;
+			}
+			
+			if(isFirstGrp) {
+				isFirstGrp = false;
+				newHead = prev;
+			}else {
+				prevFirst.setNext(prev);
+				prevFirst = firstInGrp;
+			}
+			
+		}
+		
+		head = newHead;
+	}
+	
+	
 }
