@@ -7,7 +7,7 @@ public class CheckKthBitIsSet {
 	public static void main(String[] args) {
 		
 		int num = 500; 
-		int k = 3;
+		int k = 4;
 		
 		System.out.println(CheckBit.checkKthBit(num, k));
 		
@@ -17,11 +17,12 @@ public class CheckKthBitIsSet {
 
 class CheckBit{
     /**
-     * Index starts with 0 from LSB
+     * Least Significant Bit(LSB) is at bit position 1
      */
     static boolean checkKthBit(int n, int k){
         
-        int shifted = 1 << k;
+    	System.out.println(Integer.toBinaryString(n));
+        int shifted = 1 << (k -1 );
     	
         return (n & shifted) != 0;
     }

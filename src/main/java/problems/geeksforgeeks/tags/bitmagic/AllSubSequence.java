@@ -1,6 +1,6 @@
 package problems.geeksforgeeks.tags.bitmagic;
 
-public class AllSubStrings {
+public class AllSubSequence {
 
 	public static void main(String[] args) {
 		

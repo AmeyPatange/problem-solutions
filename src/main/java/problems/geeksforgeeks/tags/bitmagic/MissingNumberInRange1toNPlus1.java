@@ -7,6 +7,9 @@ public class MissingNumberInRange1toNPlus1 {
 		int[] arr = {1,2,3,4,6};
 		System.out.println(MissingNumberInRange.getMissingNumber(arr));
 		
+		int[] arr2 = {1,2,3,5,6, 7, 8, 9, 10};
+		System.out.println(MissingNumberInRange.getMissingNumber(arr2));
+		
 	}
 }
 
@@ -25,9 +28,13 @@ class MissingNumberInRange{
 		int totalExor = 0;
 		
 		int nums =  arr.length + 1;
-		for(int i=1; i <= nums; i++) {
-			totalExor ^= i;
-		}
+		/**
+		 * We can optimize below code to get exor of 1 to num in O(1)
+		 * for(int i=1; i <= nums; i++) {
+				totalExor ^= i;
+			}
+		 */
+		totalExor = getExorUpto(nums);
 		
 		for(int i = 0; i< arr.length; i++) {
 			totalExor ^= arr[i];
@@ -35,5 +42,17 @@ class MissingNumberInRange{
 		return totalExor;
 	}
 		
-	
+	private static int getExorUpto(int num) {
+		
+		int rem = num % 4;
+		
+		if(rem == 1)
+			return 1;
+		if(rem == 2)
+			return num +1;
+		if(rem == 3)
+			return 0;
+		return num;
+		
+	}
 }

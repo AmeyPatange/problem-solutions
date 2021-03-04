@@ -16,6 +16,7 @@ class OddOccur {
 	 * 
 	 * we can use following property of exor:
 	 *  x ^ x = 0
+	 *  x ^ x ^ x = x
 	 *  x ^ y ^ z ^ x ^ y = z
 	 *  x & y will cancel out each other since x ^ x = 0
 	 */

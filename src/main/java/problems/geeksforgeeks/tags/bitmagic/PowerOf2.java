@@ -4,8 +4,10 @@ public class PowerOf2 {
 
 	public static void main(String[] args) {
 		
-		int num = 20;
+		int num = 1024;
 		System.out.println(PowerCheck.isPowerofTwo(num));
+		System.out.println(PowerCheck.isPowerOfTowOtherSolution(num));
+		
 	}
 }
 
@@ -26,4 +28,22 @@ class PowerCheck{
         return res == 1;
     }
     
+    /**
+     * Keep multiplying a number by 2 until number equals n or crosses n
+     */
+    public static boolean isPowerOfTowOtherSolution(long n) {
+    	
+    	long num  = 2;
+    	
+    	while(true) {
+    		
+    		if(num > n)
+    			return false;
+    		
+    		if(num == n)
+    			return true;
+    		
+    		num *= 2;
+    	}
+    }
 }

@@ -1,5 +1,7 @@
 package ds.array.impl;
 
+import java.util.Comparator;
+
 import ds.array.AbstractArray;
 
 /**
@@ -98,5 +100,42 @@ public class FixedSizeArray<T> extends AbstractArray<T>{
 	@Override
 	public int size() {
 		return numElements;
+	}
+	
+	public int binarySearch(T searchElement, Comparator<T> comparator) {
+	
+		int low = 0, high = numElements -1;
+		
+		while(low <= high) {
+			
+			int mid = (low + high) >>> 1;
+			int result = comparator.compare(arr[mid], searchElement);
+			if(result == 0)
+				return mid;
+			if(result < 0)
+				low = mid +1;
+			else 
+				high = mid -1;
+		}
+		return -1;
+	}
+
+	public <K extends Comparable<?> >int binarySearch(K searchElement) {
+		
+		int low = 0, high = numElements -1;
+		
+		while(low <= high) {
+			
+			int mid = (low + high) >>> 1;
+			@SuppressWarnings("unchecked")
+			int result = ((Comparable<K>)arr[mid]).compareTo(searchElement);
+			if(result == 0)
+				return mid;
+			if(result < 0)
+				low = mid +1;
+			else 
+				high = mid -1;
+		}
+		return -1;
 	}
 }
